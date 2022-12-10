@@ -29,7 +29,7 @@ class ProductoController extends Controller
         $producto->save();
 
         // redirect                         // mensaje en caso de 'success'
-        return redirect()->route('agregarProducto')->with('success', 'Producto Agregado.');
+        return redirect()->route('agregarProducto')->with('success', 'Producto Agregado Correctamente.');
 
     }
 
@@ -39,5 +39,27 @@ class ProductoController extends Controller
         return view('main', ['productos' => $productos] );
     }
 
+    public function showOne($id) {
+        $producto = Producto::find($id);
+        return view('productos.producto', ['producto' => $producto]);
+    }
+
+
+    public function updateProducto(Request $request, $id) {
+        $producto = Producto::find($id);
+        // el valor llegado de la base de datos se lo paso al request
+        $producto->nombre_prod  =  $request->nombre_prod;
+        $producto->unid_x_bulto  =  $request->unid_x_bulto;
+        $producto->precio_vent_bulto  =  $request->precio_vent_bulto;
+
+        $producto->save();
+
+        // return view('productos.producto', ['success' => 'Producto Actualizado Correctamente.']);
+        return redirect()->route('main')->with('success', 'Producto Actualizado Correctamente.');
+    }
+
+    // public function deleteOne($id) {
+    //     $item = Producto::get
+    // }
 
 }
