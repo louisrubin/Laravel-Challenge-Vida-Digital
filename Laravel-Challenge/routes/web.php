@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('main');
+// });
+
+
+Route::get('/login', function () {
+    return view('login');
 });
+
+Route::get('/producto/agregar', function () {
+    return view('main');
+});
+
+Route::get('/', [ProductoController::class, 'getAll'])->name('selectAll');
+Route::post('/', [ProductoController::class, 'store'])->name('agregarProducto');
+
+
+Route::delete('/main', [ProductoController::class, 'store'])->name('productos-destroy');
