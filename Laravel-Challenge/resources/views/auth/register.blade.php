@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Registro') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -96,13 +96,21 @@
                             <label for="ID_sucursal1" class="col-md-4 col-form-label text-md-end">{{ __('Empresa Perteneciente') }}</label>
 
                             <div class="col-md-6">
-                                <select name="ID_sucursal1" id="" class="form-control">
+                                <select name="ID_sucursal1" id="" class="form-control" >
 
-                                    <option value="" disabled>Seleccionar</option>
+                                    <option value="" class="@error('ID_sucursal1') is-invalid @enderror" >Seleccionar</option>
                                     @foreach ($sucursals as $item)
                                         <option value="{{ $item->ID_sucursal }}">{{ $item->nombre_sucursal }}</option>
                                     @endforeach
+                                    
+                                    @error('ID_sucursal1')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </select>
+
+
                             </div>
                         </div>
 
@@ -111,7 +119,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Registrarse') }}
                                 </button>
                             </div>
                         </div>

@@ -41,4 +41,4 @@ Auth::routes();
 
 
 Route::get('/register', [RegisterController::class, 'getAllSucursales'])->name('register');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'getAllProducts'])->name('home');
