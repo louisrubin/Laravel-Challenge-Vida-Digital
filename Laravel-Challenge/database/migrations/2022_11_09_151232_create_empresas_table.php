@@ -20,7 +20,6 @@ return new class extends Migration
             $table->bigIncrements('ID_empresa');
             $table->string('nombre');
             $table->string('direc_comerc');
-            $table->date('inicio_activ');
             $table->integer('telefono');
             $table->string('email');
 

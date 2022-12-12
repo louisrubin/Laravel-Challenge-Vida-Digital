@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('apellido');
             $table->string('email')->unique();
             $table->string('domicilio');
-            $table->integer('telefono')->unique();
             $table->bigInteger('ID_sucursal1')->unsigned(); // ->unsigned();
 
             $table->timestamp('email_verified_at')->nullable();

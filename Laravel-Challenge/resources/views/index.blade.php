@@ -13,15 +13,28 @@
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Bienvenido</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-            </li>
+        </button> --}}
+        <div class="navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="#">Inicio</a>
+			</li>
 
+			<ul class="navbar-nav position-absolute top-50 end-0 translate-middle">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="#">
+						
+						<button type="button" class="btn btn-dark">Iniciar Sesión</button>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="" >
+						<button type="button" class="btn btn-secondary">Registrarse</button>
+					</a>
+				</li>
+			</ul>
             {{-- <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
             </li>
@@ -33,16 +46,15 @@
             </li>--}}
 
           </ul>
+
+		  <div class="navbar-collapse position-relative">
+			
+				
+			</div>
+
         </div>
 
-		<div class="collapse navbar-collapse">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">Inicio</a>
-				</li>
-			</ul>
-			
-		</div>
+		
 
       </div>
     </nav>

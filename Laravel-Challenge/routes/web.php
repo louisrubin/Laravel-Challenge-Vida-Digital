@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +16,13 @@ use App\Http\Controllers\ProductoController;
 */
 
 // Route::get('/', function () {
-//     return view('main');
+//     return view('welcome');
 // });
 
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
 Route::get('/producto/agregar', function () {
     return view('main');
@@ -36,5 +37,8 @@ Route::patch('/producto/{codigo}', [ProductoController::class, 'updateProducto']
 Route::delete('/producto/delete/{codigo}', [ProductoController::class, 'deleteOne'])->name('eliminarProducto');
 
 
+Auth::routes();
 
 
+Route::get('/register', [RegisterController::class, 'getAllSucursales'])->name('register');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

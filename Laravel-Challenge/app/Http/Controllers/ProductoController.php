@@ -9,6 +9,10 @@ use App\Models\Producto;
 class ProductoController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function store(Request $request) {
 
@@ -42,9 +46,9 @@ class ProductoController extends Controller
         return view('main', ['productos' => $productos] );
     }
 
-    public function showOne($id) {
-        $producto = DB::table('productos')->where('cod_barra', $id)->first();
-        // $producto = Producto::find($id);
+    public function showOne($cod) {
+        $producto = DB::table('productos')->where('cod_barra', $cod)->first();
+        
         return view('productos.producto', ['producto' => $producto]);
     }
 
