@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Sucursal extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'ID_sucursal';      // SET PRIMARY KEY
 }

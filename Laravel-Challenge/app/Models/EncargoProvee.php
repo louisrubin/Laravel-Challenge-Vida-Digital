@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class EncargoProvee extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'ID_encargo';      // SET PRIMARY KEY
 }

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ActualizarStock extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = 'ID_actualizar';      // SET PRIMARY KEY
 }
