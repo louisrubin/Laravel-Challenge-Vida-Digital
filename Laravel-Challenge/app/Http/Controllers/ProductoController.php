@@ -14,7 +14,7 @@ class ProductoController extends Controller
         $this->middleware('auth');
     }
 
-    public function store(Request $request) {
+    public function createProducto(Request $request) {
 
         // validamos que los campos no lleguen vacios
         $request->validate( [
@@ -43,7 +43,7 @@ class ProductoController extends Controller
     public function getAll() {
         $productos = Producto::all();
 
-        return view('main', ['productos' => $productos] );
+        return view('newProducto', ['productos' => $productos] );
     }
     
 
@@ -51,7 +51,7 @@ class ProductoController extends Controller
     public function showOne($cod) {
         $producto = DB::table('productos')->where('cod_barra', $cod)->first();
         
-        return view('productos.producto', ['producto' => $producto]);
+        return view('productos.updateProducto', ['producto' => $producto]);
     }
 
 
@@ -71,7 +71,7 @@ class ProductoController extends Controller
         return redirect()->route('home')->with('success', 'Producto Actualizado Correctamente.');
     }
 
-    public function deleteOne($codigo) {
+    public function deleteProducto($codigo) {
         DB::table('productos')
                 ->where('cod_barra', '=', $codigo)
                 ->delete();

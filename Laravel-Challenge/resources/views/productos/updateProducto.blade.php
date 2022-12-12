@@ -2,12 +2,12 @@
 
 {{-- TITLE --}}
 @section('title')
-    Ver Producto
+    Ver '{{ $producto->nombre_prod }}'
 @endsection
 
 {{-- FRASE PRINCIPAL SUPERIOR --}}
 @section('h1')
-    Producto "{{ $producto->nombre_prod }}"
+    "{{ $producto->nombre_prod }}"
 @endsection
 
 @section('content')
@@ -69,9 +69,12 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-md-4 col-form-label text-md-end">{{ __('Precio en Venta por Bultos') }}</label>
-
+                                <label class="col-md-4 col-form-label text-md-end">{{ __('Precio en Venta por Bultos') }} 
+                                    <span class="fw-bold ms-2">$</span>
+                                </label>
+                                
                                 <div class="col-md-6">
+                                    
                                     <input id="precio_vent_bulto" name="precio_vent_bulto" type="text" class="form-control @error('precio_vent_bulto') is-invalid @enderror" value="{{ $producto->precio_vent_bulto }}" required>
 
                                     @error('precio_vent_bulto')
@@ -91,6 +94,7 @@
                             </div>
                         </form>
 
+                        {{-- BACK TO MENU --}}
                         <a href="{{ route('home') }}" >
                             <button class="btn btn-dark btn-sm mt-3 ">Volver</button>
                         </a>
@@ -100,46 +104,6 @@
         </div>
     </div>
 </div>
-
-
-{{-- 
-    <div class="container w-50 p-3 border-4 mt-4" style="background-color: rgba(109, 148, 202, 0.568)">
-        
-        <form action="{{ route('updateProducto', ['codigo' => $producto->cod_barra]) }}" method="POST" >
-            @method('PATCH')
-            @csrf
-
-            <div class="mb-3">
-                <label for="" class="form-label fw-semibold">Código de Barra</label>
-                <input type="text" name="cod_barra" class="form-control" value="{{ $producto->cod_barra }}">
-            </div>
-
-            <div class="mb-3">
-                <label for="" class="form-label fw-semibold">Nombre del Producto</label>
-                <input type="text" name="nombre_prod" class="form-control" value="{{ $producto->nombre_prod }}">
-            </div>
-            
-            <div class="mb-3">
-                <label for="" class="form-label fw-semibold">Unidades por Bulto</label>
-                <input type="text" name="unid_x_bulto" class="form-control" value="{{ $producto->unid_x_bulto }}">
-            </div>
-
-            <div class="mb-3">
-                <label for="" class="form-label fw-semibold">Precio en Venta por Bulto</label>
-                <div class="input-group mb-3">
-                    <span class="input-group-text fw-semibold">$</span>
-                    <input type="text" name="precio_vent_bulto" class="form-control" value="{{ $producto->precio_vent_bulto }}">
-                </div>
-            </div>
-            
-            <button type="submit" class="btn btn-success btn-lg col-md-2 me-3" >Modificar</button>
-        </form>
-
-        <a href="{{ route('home') }}">
-            <button class="btn btn-dark btn-m mt-3 ">Volver</button>
-        </a>
-    
-    </div> --}}
 
 
     

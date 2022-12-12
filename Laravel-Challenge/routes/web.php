@@ -15,27 +15,15 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-// Route::get('/login', function () {
-//     return view('login');
-// });
-
-// Route::get('/', function () {
-//     return view('main');
-// });
-Route::get('/', [ProductoController::class, 'getAll'])->name('main');
-
+// Route::get('/', [ProductoController::class, 'getAll'])->name('main');
 Route::get('/productos', [ProductoController::class, 'getAll'])->name('viewAllProducts');
-Route::post('/productos', [ProductoController::class, 'store'])->name('agregarProducto');
-
-
 Route::get('/producto/{codigo}', [ProductoController::class, 'showOne'])->name('mostrarProducto');
+
+Route::post('/productos', [ProductoController::class, 'createProducto'])->name('agregarProducto');
+
 Route::patch('/producto/{codigo}', [ProductoController::class, 'updateProducto'])->name('updateProducto');
-Route::delete('/producto/delete/{codigo}', [ProductoController::class, 'deleteOne'])->name('eliminarProducto');
+
+Route::delete('/producto/delete/{codigo}', [ProductoController::class, 'deleteProducto'])->name('eliminarProducto');
 
 
 Auth::routes();
