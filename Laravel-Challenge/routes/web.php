@@ -31,6 +31,10 @@ Route::get('/', [ProductoController::class, 'getAll'])->name('selectAll');
 Route::post('/', [ProductoController::class, 'store'])->name('agregarProducto');
 
 
-Route::get('/producto/{id}', [ProductoController::class, 'showOne'])->name('mostrarProducto');
-Route::patch('/producto/{id}', [ProductoController::class, 'updateProducto'])->name('updateProducto');
-Route::delete('/producto/{id}', [ProductoController::class, 'deleteOne'])->name('eliminarProducto');
+Route::get('/producto/{codigo}', [ProductoController::class, 'showOne'])->name('mostrarProducto');
+Route::patch('/producto/{codigo}', [ProductoController::class, 'updateProducto'])->name('updateProducto');
+Route::delete('/producto/delete/{codigo}', [ProductoController::class, 'deleteOne'])->name('eliminarProducto');
+
+
+
+

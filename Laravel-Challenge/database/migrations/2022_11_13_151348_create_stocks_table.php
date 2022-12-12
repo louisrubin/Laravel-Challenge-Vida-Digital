@@ -14,11 +14,20 @@ return new class extends Migration
     public function up()
     {
         Schema::create('stocks', function (Blueprint $table) {
-            $table->id();
+            
+            $table->bigIncrements('cod_barra');   // PRIMARY KEY
             $table->string('nombre_prod');
             $table->double('precio_venta_unit');
             $table->integer('stock');
-            $table->timestamps();
+
+            $table->bigInteger('ID_actualizar3')->unsigned();
+            $table->bigInteger('ID_sucursal3')->unsigned();
+            
+            $table->timestamps();   // fecha-hora
+
+            // FOREIGN KEY
+            $table->foreign('ID_actualizar3')->references('ID_actualizar')->on('actualizar_stocks')->onDelete('cascade');
+            $table->foreign('ID_sucursal3')->references('ID_sucursal')->on('sucursals')->onDelete('cascade');
         });
     }
 

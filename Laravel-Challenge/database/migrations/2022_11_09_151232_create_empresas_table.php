@@ -13,19 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('empleados', function (Blueprint $table) {
-            $table->id();
+        Schema::create('empresas', function (Blueprint $table) {
+
+            // $table->engine="InnoDB"; // permite borrar las tablas vacias relacionadas en cascada
+
+            $table->bigIncrements('ID_empresa');
             $table->string('nombre');
-            $table->string('apellido');
-            $table->string('domicilio');
+            $table->string('direc_comerc');
+            $table->date('inicio_activ');
             $table->integer('telefono');
-            $table->date('fecha_nac');
-            $table->integer('edad');
-            $table->char('sexo');
-            $table->string('nacionalidad');
-            $table->string('rol');
-            $table->integer('ID_sucursal1');
-            $table->timestamps();
+            $table->string('email');
+
+            $table->timestamps();   // fecha-hora
         });
     }
 
@@ -36,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empleados');
+        Schema::dropIfExists('empresas');
     }
 };
