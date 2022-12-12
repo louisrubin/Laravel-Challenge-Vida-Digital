@@ -27,7 +27,7 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function getAllProducts() {
+    public function getAllProductos() {
         $productos = Producto::all();
 
         return view('home', ['allProductos' => $productos] );

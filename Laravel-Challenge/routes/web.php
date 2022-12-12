@@ -24,12 +24,13 @@ use App\Http\Controllers\Auth\RegisterController;
 //     return view('login');
 // });
 
-Route::get('/producto/agregar', function () {
-    return view('main');
-});
+// Route::get('/', function () {
+//     return view('main');
+// });
+Route::get('/', [ProductoController::class, 'getAll'])->name('main');
 
-Route::get('/', [ProductoController::class, 'getAll'])->name('selectAll');
-Route::post('/', [ProductoController::class, 'store'])->name('agregarProducto');
+Route::get('/productos', [ProductoController::class, 'getAll'])->name('viewAllProducts');
+Route::post('/productos', [ProductoController::class, 'store'])->name('agregarProducto');
 
 
 Route::get('/producto/{codigo}', [ProductoController::class, 'showOne'])->name('mostrarProducto');
@@ -41,4 +42,4 @@ Auth::routes();
 
 
 Route::get('/register', [RegisterController::class, 'getAllSucursales'])->name('register');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'getAllProducts'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'getAllProductos'])->name('home');

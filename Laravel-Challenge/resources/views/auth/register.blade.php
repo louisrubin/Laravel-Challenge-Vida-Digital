@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+{{-- TITLE --}}
+@section('title')
+    Registro
+@endsection
+
+{{-- FRASE PRINCIPAL SUPERIOR --}}
+@section('h1')
+    Registrarse
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

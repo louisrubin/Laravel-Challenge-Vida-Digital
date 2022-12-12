@@ -45,6 +45,8 @@ class ProductoController extends Controller
 
         return view('main', ['productos' => $productos] );
     }
+    
+
 
     public function showOne($cod) {
         $producto = DB::table('productos')->where('cod_barra', $cod)->first();
@@ -53,8 +55,9 @@ class ProductoController extends Controller
     }
 
 
+
     public function updateProducto(Request $request, $codigo) {
-        $producto = DB::table('productos')->where('cod_barra', $codigo)->first();
+        $producto = Producto::find($codigo);
 
         // el valor llegado de la base de datos se lo paso al request
         $producto->cod_barra = $request->cod_barra;
@@ -65,7 +68,7 @@ class ProductoController extends Controller
         $producto->save();
 
         // return view('productos.producto', ['success' => 'Producto Actualizado Correctamente.']);
-        return redirect()->route('main')->with('success', 'Producto Actualizado Correctamente.');
+        return redirect()->route('home')->with('success', 'Producto Actualizado Correctamente.');
     }
 
     public function deleteOne($codigo) {
@@ -76,7 +79,7 @@ class ProductoController extends Controller
         // DB::delete('productos')->where('cod_barra', $codigo);
         // $item = Producto::find($id)->delete('cod_barra');
 
-        return redirect()->route('agregarProducto')->with('success', 'Producto Eliminado Correctamente.');
+        return redirect()->route('home')->with('success', 'Producto Eliminado Correctamente.');
     }
 
 }
