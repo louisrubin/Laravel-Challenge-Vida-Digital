@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Sucursal;
 
 class RegisterController extends Controller
@@ -66,11 +68,31 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+    
+
+
 
     public function getAllSucursales() {
         // FUNCION QUE OBTIENE TODAS LAS SUCURSALES PARA VINCULARLOS AL MOMENTO DEL REGISTRO
-        $sucursals = Sucursal::all();
+        
 
+        $id = 1;
+        $sucur = Sucursal::where('ID_sucursal', $id)->first();
+
+        // CREATE THE INITIAL SUCURSALS TO REGISTER USER INTO IT
+        if( !$sucur) {
+            $sucur = Sucursal::create( [
+                // 'ID_sucursal' => $id,
+                'nombre_sucursal' => 'El Pepe Salchichas',
+                'direc_comerc' => 'Av. Washington 4560',
+                'telefono' => '3624655443',
+                'email' => 'elpepe.12@gmail.com'
+            ] );
+        }
+
+
+        // GET ALL SUCURSALS
+        $sucursals = Sucursal::all();
         return view('auth.register', ['sucursals' => $sucursals] );
     }
 
