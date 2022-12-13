@@ -41,7 +41,7 @@ class ProductoController extends Controller
     }
 
     public function getAll() {
-        $productos = Producto::all();
+        $productos = Producto::all()->take(2);
 
         return view('newProducto', ['productos' => $productos] );
     }

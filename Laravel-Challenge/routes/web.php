@@ -30,4 +30,4 @@ Auth::routes();
 
 
 Route::get('/register', [RegisterController::class, 'getAllSucursales'])->name('register');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'getAllProductos'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'get3Productos', ])->name('home');

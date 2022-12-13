@@ -27,8 +27,9 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function getAllProductos() {
-        $productos = Producto::all();
+    public function get3Productos() {
+        // GET THE FIRST 3 PRODUCTOS
+        $productos = Producto::all()->take(3);
 
         return view('home', ['allProductos' => $productos] );
     }
