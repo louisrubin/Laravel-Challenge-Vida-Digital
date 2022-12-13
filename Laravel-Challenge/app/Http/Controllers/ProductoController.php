@@ -14,6 +14,10 @@ class ProductoController extends Controller
         $this->middleware('auth');
     }
 
+    public function createProductoPage() {
+        return view('productos.newProducto');
+    }
+
     public function createProducto(Request $request) {
 
         // validamos que los campos no lleguen vacios
@@ -40,8 +44,9 @@ class ProductoController extends Controller
 
     }
 
-    public function newRecord() {
-        return view('productos.newProducto');
+    public function allRecords() {
+        $productos = Producto::all();
+        return view('productos.viewAllProductos', ['allProducto' => $productos] );
     }
     
 

@@ -33,10 +33,10 @@ class HomeController extends Controller
 
     
     public function getEntidades() {
-        // GET THE FIRST 3 PRODUCTOS
-        $productos = Producto::all()->take(3);
-        $empresas = Empresa::all()->take(3);
-        $sucursals = Sucursal::all()->take(3);
+        // GET ALL RECORDS
+        $productos = Producto::all();
+        $empresas = Empresa::all();
+        $sucursals = Sucursal::all();
 
         return view('home', ['allProductos' => $productos], ['allEmpresas' => $empresas], ['allSucursals' => $sucursals] );
     }

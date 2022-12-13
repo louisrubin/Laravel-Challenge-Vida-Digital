@@ -21,7 +21,8 @@ use App\Http\Controllers\Auth\RegisterController;
 
 // PRODUCTOS
 
-Route::get('/producto/create', [ProductoController::class, 'newRecord'])->name('viewAllProducts');
+Route::get('/productos', [ProductoController::class, 'allRecords'])->name('viewAllProducts');
+Route::get('/productos/create', [ProductoController::class, 'createProductoPage'])->name('createProductoPage');
 Route::get('/producto/{codigo}', [ProductoController::class, 'showOne'])->name('mostrarProducto');
 Route::post('/producto/create', [ProductoController::class, 'createProducto'])->name('agregarProducto');
 Route::patch('/producto/{codigo}', [ProductoController::class, 'updateProducto'])->name('updateProducto');
@@ -31,7 +32,7 @@ Route::delete('/producto/delete/{codigo}', [ProductoController::class, 'deletePr
 
 // EMPRESAS
 
-Route::get('/empresa/create', [EmpresaController::class, 'newRecord'])->name('viewAllEmpresas');
+Route::get('/empresas', [EmpresaController::class, 'allRecords'])->name('viewAllEmpresas');
 Route::get('/empresa/{id}', [EmpresaController::class, 'showOne'])->name('mostrarEmpresa');
 Route::post('/empresa/create', [EmpresaController::class, 'createEmpresa'])->name('agregarEmpresa');
 Route::patch('/empresa/{id}', [EmpresaController::class, 'updateEmpresa'])->name('updateEmpresa');
@@ -41,7 +42,7 @@ Route::delete('/empresa/delete/{id}', [EmpresaController::class, 'deleteEmpresa'
 
 // SUCURSALS
 
-Route::get('/sucursals', [SucursalController::class, 'newRecord'])->name('viewAllSucursals');
+Route::get('/sucursals', [SucursalController::class, 'allRecords'])->name('viewAllSucursals');
 Route::get('/sucursal/{id}', [SucursalController::class, 'showOne'])->name('mostrarSucursal');
 Route::post('/sucursals', [SucursalController::class, 'createSucursal'])->name('agregarSucursal');
 Route::patch('/sucursal/{id}', [SucursalController::class, 'updateSucursal'])->name('updateSucursal');
@@ -51,7 +52,7 @@ Route::delete('/sucursal/delete/{id}', [SucursalController::class, 'deleteSucurs
 
 // USERS
 
-Route::get('/users', [EmpleadoController::class, 'newRecord'])->name('viewAllUsers');
+Route::get('/users', [EmpleadoController::class, 'allRecords'])->name('viewAllUsers');
 Route::get('/user/{id}', [EmpleadoController::class, 'showOne'])->name('mostrarUser');
 Route::post('/users', [EmpleadoController::class, 'createUser'])->name('agregarUser');
 Route::patch('/user/{id}', [EmpleadoController::class, 'updateUser'])->name('updateUser');

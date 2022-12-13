@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <div class="fw-semibold fs-4 text">{{ __('Productos') }}</div>
-                    <a href="{{ route('viewAllProducts') }}" type="button">
+                    <a href="{{ route('createProductoPage') }}" type="button">
                         <button type="button" class="btn btn-primary p-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"></path>
@@ -36,7 +36,7 @@
                     @endif
 
                     {{-- FOR EACH PRODUCTO --}}
-                    @foreach ($allProductos as $item)
+                    @foreach ($allProductos as $key => $item)
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <a href="{{ route( 'mostrarProducto', [$item->cod_barra] ) }}" class="text-capitalize text-decoration-none fw-bold">
@@ -60,14 +60,19 @@
                             
                         </div>
                         <hr>
+
+                    {{-- ONLY SHOW FIRST 3 ELEMENTS --}}
+                        @if ($key == 2)
+                            @break
+                        @endif
+
                     @endforeach
                     
-                    @if (count($allProductos) >= 3)
-                        <div class="text-center">
-                            <a href="" class="text-decoration-none fw-bold pt-3 ">Ver todos los productos ({{ count($allProductos) }})</a>
-                        </div>
-                        
-                    @endif
+
+                    <div class="text-center">
+                        <a href="{{ route('viewAllProducts') }}" class="text-decoration-none fw-bold pt-3 ">Ver todos los productos ({{ count($allProductos) }})</a>
+                    </div>
+
                     
                 </div>
             </div>
