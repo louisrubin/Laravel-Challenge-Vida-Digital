@@ -25,8 +25,8 @@ Route::get('/productos', [ProductoController::class, 'allRecords'])->name('viewA
 Route::get('/productos/create', [ProductoController::class, 'createProductoPage'])->name('createProductoPage');
 Route::get('/producto/{codigo}', [ProductoController::class, 'showOne'])->name('mostrarProducto');
 Route::post('/producto/create', [ProductoController::class, 'createProducto'])->name('agregarProducto');
-Route::patch('/producto/{codigo}', [ProductoController::class, 'updateProducto'])->name('updateProducto');
-Route::delete('/producto/delete/{codigo}', [ProductoController::class, 'deleteProducto'])->name('eliminarProducto');
+Route::patch('/update/{codigo}', [ProductoController::class, 'updateProducto'])->name('updateProducto');
+Route::delete('/delete/{codigo}', [ProductoController::class, 'deleteProducto'])->name('eliminarProducto');
 
 
 
@@ -35,8 +35,8 @@ Route::delete('/producto/delete/{codigo}', [ProductoController::class, 'deletePr
 Route::get('/empresas', [EmpresaController::class, 'allRecords'])->name('viewAllEmpresas');
 Route::get('/empresa/{id}', [EmpresaController::class, 'showOne'])->name('mostrarEmpresa');
 Route::post('/empresa/create', [EmpresaController::class, 'createEmpresa'])->name('agregarEmpresa');
-Route::patch('/empresa/{id}', [EmpresaController::class, 'updateEmpresa'])->name('updateEmpresa');
-Route::delete('/empresa/delete/{id}', [EmpresaController::class, 'deleteEmpresa'])->name('eliminarEmpresa');
+Route::patch('/update/{id}', [EmpresaController::class, 'updateEmpresa'])->name('updateEmpresa');
+Route::delete('/delete/{id}', [EmpresaController::class, 'deleteEmpresa'])->name('eliminarEmpresa');
 
 
 
@@ -45,8 +45,8 @@ Route::delete('/empresa/delete/{id}', [EmpresaController::class, 'deleteEmpresa'
 Route::get('/sucursals', [SucursalController::class, 'allRecords'])->name('viewAllSucursals');
 Route::get('/sucursal/{id}', [SucursalController::class, 'showOne'])->name('mostrarSucursal');
 Route::post('/sucursals', [SucursalController::class, 'createSucursal'])->name('agregarSucursal');
-Route::patch('/sucursal/{id}', [SucursalController::class, 'updateSucursal'])->name('updateSucursal');
-Route::delete('/sucursal/delete/{id}', [SucursalController::class, 'deleteSucursal'])->name('eliminarSucursal');
+Route::patch('/update/{id}', [SucursalController::class, 'updateSucursal'])->name('updateSucursal');
+Route::delete('/delete/{id}', [SucursalController::class, 'deleteSucursal'])->name('eliminarSucursal');
 
 
 

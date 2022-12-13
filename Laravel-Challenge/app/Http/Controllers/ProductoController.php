@@ -46,7 +46,7 @@ class ProductoController extends Controller
 
     public function allRecords() {
         $productos = Producto::all();
-        return view('productos.viewAllProductos', ['allProducto' => $productos] );
+        return view('productos.viewAllProductos', ['allProductos' => $productos] );
     }
     
 

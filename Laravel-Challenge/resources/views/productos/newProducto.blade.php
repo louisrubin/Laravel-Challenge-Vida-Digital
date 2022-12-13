@@ -101,7 +101,7 @@
 
                             {{-- BACK TO MENU --}}
                             <a href="{{ route('home') }}" >
-                                <button class="btn btn-dark btn-sm mt-3 ">Volver</button>
+                                <button class="btn btn-dark btn-sm mt-3 ">Inicio</button>
                             </a>
 
                         </div>

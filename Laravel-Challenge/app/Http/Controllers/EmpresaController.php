@@ -29,6 +29,9 @@ class EmpresaController extends Controller
     }
 
 
+    public function showOne(Empresa $empresa) {
+        //
+    }
 
     public function createEmpresa(Request $request) {
 
@@ -44,7 +47,7 @@ class EmpresaController extends Controller
 
         $empresa = new Empresa;
         // asignando los valores recibidos de la request
-        $empresa->ID_empresa = $request->ID_empresa;
+        // $empresa->ID_empresa = $request->ID_empresa;
         $empresa->nombre  =  $request->nombre;
         $empresa->direc_comerc  =  $request->direc_comerc;
         $empresa->telefono  =  $request->telefono;
@@ -62,10 +65,6 @@ class EmpresaController extends Controller
      * @param  \App\Http\Requests\StoreEmpresaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEmpresaRequest $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -73,10 +72,6 @@ class EmpresaController extends Controller
      * @param  \App\Models\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function showOne(Empresa $empresa)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -84,10 +79,6 @@ class EmpresaController extends Controller
      * @param  \App\Models\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empresa $empresa)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -96,10 +87,6 @@ class EmpresaController extends Controller
      * @param  \App\Models\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateEmpresaRequest $request, Empresa $empresa)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -107,8 +94,4 @@ class EmpresaController extends Controller
      * @param  \App\Models\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empresa $empresa)
-    {
-        //
-    }
 }
