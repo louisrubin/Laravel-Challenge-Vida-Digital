@@ -16,7 +16,7 @@ class Sucursal extends Model
         // PERMITE CARGAR DATOS DENTRO DE UNA FUNCION COMO 
         // 'Sucursal::create('sucursales', ['id' => $id,...] ); '
         'ID_sucursal',
-        'nombre_sucursal',
+        'nombre_sucur',
         'direc_comerc',
         'telefono',
         'email',

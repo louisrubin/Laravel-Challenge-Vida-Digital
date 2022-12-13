@@ -25,7 +25,6 @@ class User extends Authenticatable
         'apellido',
         'email',
         'domicilio',
-        'telefono',
         'password',
         'ID_sucursal1',
     ];

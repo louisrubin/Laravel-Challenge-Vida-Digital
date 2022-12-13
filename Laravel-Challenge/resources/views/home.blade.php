@@ -92,7 +92,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <div class="fw-semibold fs-4 text">{{ __('Empresas') }}</div>
-                    <a href="{{ route('viewAllProducts') }}" type="button">
+                    <a href="{{ route('createEmpresaPage') }}" type="button">
                         <button type="button" class="btn btn-primary p-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"></path>
@@ -115,14 +115,14 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <a href="" class="text-capitalize text-decoration-none fw-bold">
-                                    {{ $item->nombre }}
+                                    {{ $empresa->nombre_emp }}
                                 </a>
                                 {{-- <small class="ps-2">({{ $item->unid_x_bulto }} x ${{ $item->precio_vent_bulto }})</small> --}}
                             </div>
                             
 
                             {{-- DELETE EMPRESA --}}
-                            {{-- <form method="POST" action="{{ route('eliminarProducto', [$item->ID_empresa])  }}">
+                            <form method="POST" action="{{ route('eliminarProducto', [$empresa->ID_empresa])  }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger p-1">
@@ -131,7 +131,7 @@
                                     </svg>
                                 </button>
 
-                            </form> --}}
+                            </form>
                             
                         </div>
                         <hr>

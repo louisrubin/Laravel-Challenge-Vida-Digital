@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Empresa;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreEmpresaRequest;
 use App\Http\Requests\UpdateEmpresaRequest;
+
+use App\Models\Empresa;
 
 class EmpresaController extends Controller
 {
@@ -24,7 +26,7 @@ class EmpresaController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function newRecord() {
+     public function createEmpresaPage() {
         return view('empresa.newEmpresa' );
     }
 
@@ -37,8 +39,8 @@ class EmpresaController extends Controller
 
         // validamos que los campos no lleguen vacios
         $request->validate( [
-            'ID_empresa' => 'required|min:5',
-            'nombre' => 'required|min:3',
+            // 'ID_empresa' => 'required|min:5',
+            'nombre_emp' => 'required|min:3',
             'direc_comerc' => 'required',
             'telefono' => 'required',
             'email' => 'required',
@@ -48,12 +50,12 @@ class EmpresaController extends Controller
         $empresa = new Empresa;
         // asignando los valores recibidos de la request
         // $empresa->ID_empresa = $request->ID_empresa;
-        $empresa->nombre  =  $request->nombre;
+        $empresa->nombre_emp  =  $request->nombre_emp;
         $empresa->direc_comerc  =  $request->direc_comerc;
         $empresa->telefono  =  $request->telefono;
         $empresa->email  =  $request->email;
 
-        $producto->save();
+        $empresa->save();
 
         // redirect                         // mensaje en caso de 'success'
         return redirect()->route('home')->with('success', 'Empresa Agregado Correctamente.');

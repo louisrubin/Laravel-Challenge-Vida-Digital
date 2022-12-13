@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Sucursal;
+use App\Models\Empresa;
 
 class RegisterController extends Controller
 {
@@ -54,7 +55,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nombre' => ['required', 'string', 'max:255'],
+            'user_name' => ['required', 'string', 'max:255'],
             'apellido' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -76,18 +77,33 @@ class RegisterController extends Controller
         // FUNCION QUE OBTIENE TODAS LAS SUCURSALES PARA VINCULARLOS AL MOMENTO DEL REGISTRO
         
 
-        $id = 1;
-        $sucur = Sucursal::where('ID_sucursal', $id)->first();
+        $id_emp = 1;
+        $id_sucur = 1;
+        $emp = Empresa::where('ID_empresa', $id_emp)->first();
+        $sucur = Sucursal::where('ID_sucursal', $id_sucur)->first();
 
-        // CREATE THE INITIAL SUCURSALS TO REGISTER USER INTO IT
-        if( !$sucur) {
+        // CREATE THE INITIAL SUCURSALS AND EMPRESA TO REGISTER USER INTO IT
+        if( !$sucur && !$emp) {
+            $emp = Empresa::create( [
+                'ID_empresa' => $id_emp,
+                'nombre_emp' => 'Google Inc',
+                'direc_comerc' => 'Av. Mexico 320',
+                'telefono' => '3624569014',
+                'email' => 'google@google.com',
+            ]);
+
+
+
             $sucur = Sucursal::create( [
                 // 'ID_sucursal' => $id,
-                'nombre_sucursal' => 'El Pepe Salchichas',
+                'nombre_sucur' => 'El Pepe Salchichas',
                 'direc_comerc' => 'Av. Washington 4560',
                 'telefono' => '3624655443',
-                'email' => 'elpepe.12@gmail.com'
+                'email' => 'elpepe.12@gmail.com',
+                'ID_empresa1' => $id_emp,
             ] );
+
+
         }
 
 
@@ -100,10 +116,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'nombre' => $data['nombre'],
+            'user_name' => $data['user_name'],
             'apellido' => $data['apellido'],
-            'domicilio' => $data['domicilio'],
             'email' => $data['email'],
+            'domicilio' => $data['domicilio'],
             'password' => Hash::make($data['password']),
             'ID_sucursal1' => $data['ID_sucursal1'],
         ]);
