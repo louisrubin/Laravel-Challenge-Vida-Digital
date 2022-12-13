@@ -18,7 +18,7 @@ return new class extends Migration
             // $table->engine="InnoDB"; // permite borrar las tablas vacias relacionadas en cascada
 
             $table->bigIncrements('ID_empresa');
-            $table->string('nombre');
+            $table->string('nombre_emp');
             $table->string('direc_comerc');
             $table->string('telefono');
             $table->string('email');

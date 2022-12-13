@@ -20,5 +20,6 @@ class Sucursal extends Model
         'direc_comerc',
         'telefono',
         'email',
+        'ID_empresa1',
     ];
 }

@@ -21,10 +21,11 @@ class User extends Authenticatable
     protected $primaryKey = 'ID_empleado';      // SET PRIMARY KEY
 
     protected $fillable = [
-        'nombre',
+        'user_name',
         'apellido',
         'email',
         'domicilio',
+        'telefono',
         'password',
         'ID_sucursal1',
     ];

@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
 
             $table->bigIncrements('ID_empleado');
-            $table->string('nombre');
+            $table->string('user_name');
             $table->string('apellido');
             $table->string('email')->unique();
             $table->string('domicilio');
+            
             $table->bigInteger('ID_sucursal1')->unsigned(); // ->unsigned();
 
             $table->timestamp('email_verified_at')->nullable();
