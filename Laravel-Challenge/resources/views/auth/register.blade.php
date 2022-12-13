@@ -103,7 +103,7 @@
 
 
                         <div class="row mb-3">
-                            <label for="ID_sucursal1" class="col-md-4 col-form-label text-md-end">{{ __('Empresa Perteneciente') }}</label>
+                            <label for="ID_sucursal1" class="col-md-4 col-form-label text-md-end">{{ __('Sucursal Perteneciente') }}</label>
 
                             <div class="col-md-6">
                                 <select name="ID_sucursal1" id="" class="form-control" >

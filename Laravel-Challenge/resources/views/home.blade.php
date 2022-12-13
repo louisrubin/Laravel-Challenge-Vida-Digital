@@ -62,7 +62,7 @@
                         <hr>
                     @endforeach
                     
-                    @if (count($allProductos) == 3)
+                    @if (count($allProductos) >= 3)
                         <div class="text-center">
                             <a href="" class="text-decoration-none fw-bold pt-3 ">Ver todos los productos ({{ count($allProductos) }})</a>
                         </div>
@@ -78,8 +78,7 @@
 
 
 
-
-
+{{-- ----   EMPRESAS   ---- --}}
 
 
 
@@ -87,7 +86,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
-                    <div class="fw-semibold fs-4 text">{{ __('Productos') }}</div>
+                    <div class="fw-semibold fs-4 text">{{ __('Empresas') }}</div>
                     <a href="{{ route('viewAllProducts') }}" type="button">
                         <button type="button" class="btn btn-primary p-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
@@ -106,19 +105,19 @@
                         </div>
                     @endif
 
-                    {{-- FOR EACH PRODUCTO --}}
-                    @foreach ($allProductos as $item)
-                        <div class="d-flex justify-content-between align-items-center px-3">
+                    {{-- FOR EACH EMPRESA --}}
+                    @foreach ($allEmpresas as $empresa)
+                        <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <a href="{{ route( 'mostrarProducto', [$item->cod_barra] ) }}" class="text-capitalize text-decoration-none fw-bold">
-                                    {{ $item->nombre_prod }}
+                                <a href="" class="text-capitalize text-decoration-none fw-bold">
+                                    {{ $item->nombre }}
                                 </a>
-                                <small class="ps-2">({{ $item->unid_x_bulto }} x ${{ $item->precio_vent_bulto }})</small>
+                                {{-- <small class="ps-2">({{ $item->unid_x_bulto }} x ${{ $item->precio_vent_bulto }})</small> --}}
                             </div>
                             
 
-                            {{-- DELETE PRODUCTO --}}
-                            <form method="POST" action="{{ route('eliminarProducto', [$item->cod_barra])  }}">
+                            {{-- DELETE EMPRESA --}}
+                            {{-- <form method="POST" action="{{ route('eliminarProducto', [$item->ID_empresa])  }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger p-1">
@@ -127,15 +126,15 @@
                                     </svg>
                                 </button>
 
-                            </form>
+                            </form> --}}
                             
                         </div>
                         <hr>
                     @endforeach
                     
-                    @if (count($allProductos) == 3)
+                    @if (count($allEmpresas) >= 3)
                         <div class="text-center">
-                            <a href="" class="text-decoration-none fw-bold pt-3 ">Ver todos los productos ({{ count($allProductos) }})</a>
+                            <a href="" class="text-decoration-none fw-bold pt-3 ">Ver todas las empresas ({{ count($allEmpresas) }})</a>
                         </div>
                         
                     @endif
@@ -148,4 +147,5 @@
 
 
 </div>
+
 @endsection
