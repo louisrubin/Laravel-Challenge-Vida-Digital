@@ -31,12 +31,14 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function getProdEmp() {
+    
+    public function getEntidades() {
         // GET THE FIRST 3 PRODUCTOS
         $productos = Producto::all()->take(3);
         $empresas = Empresa::all()->take(3);
+        $sucursals = Sucursal::all()->take(3);
 
-        return view('home', ['allProductos' => $productos], ['allEmpresas' => $empresas] );
+        return view('home', ['allProductos' => $productos], ['allEmpresas' => $empresas], ['allSucursals' => $sucursals] );
     }
 
 }

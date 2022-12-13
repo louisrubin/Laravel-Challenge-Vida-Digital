@@ -40,10 +40,8 @@ class ProductoController extends Controller
 
     }
 
-    public function getAll() {
-        $productos = Producto::all()->take(2);
-
-        return view('newProducto', ['productos' => $productos] );
+    public function newRecord() {
+        return view('productos.newProducto');
     }
     
 

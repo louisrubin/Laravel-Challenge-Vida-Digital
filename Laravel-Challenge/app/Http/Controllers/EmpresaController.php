@@ -23,9 +23,37 @@ class EmpresaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+
+     public function newRecord() {
+        return view('empresa.newEmpresa' );
+    }
+
+
+
+    public function createEmpresa(Request $request) {
+
+        // validamos que los campos no lleguen vacios
+        $request->validate( [
+            'ID_empresa' => 'required|min:5',
+            'nombre' => 'required|min:3',
+            'direc_comerc' => 'required',
+            'telefono' => 'required',
+            'email' => 'required',
+        ] );
+
+
+        $empresa = new Empresa;
+        // asignando los valores recibidos de la request
+        $empresa->ID_empresa = $request->ID_empresa;
+        $empresa->nombre  =  $request->nombre;
+        $empresa->direc_comerc  =  $request->direc_comerc;
+        $empresa->telefono  =  $request->telefono;
+        $empresa->email  =  $request->email;
+
+        $producto->save();
+
+        // redirect                         // mensaje en caso de 'success'
+        return redirect()->route('home')->with('success', 'Empresa Agregado Correctamente.');
     }
 
     /**
@@ -45,7 +73,7 @@ class EmpresaController extends Controller
      * @param  \App\Models\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function show(Empresa $empresa)
+    public function showOne(Empresa $empresa)
     {
         //
     }
