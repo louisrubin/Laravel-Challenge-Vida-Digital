@@ -36,7 +36,7 @@ class ProductoController extends Controller
         $producto->save();
 
         // redirect                         // mensaje en caso de 'success'
-        return redirect()->route('agregarProducto')->with('success', 'Producto Agregado Correctamente.');
+        return redirect()->route('home')->with('success', 'Producto Agregado Correctamente.');
 
     }
 
@@ -72,12 +72,7 @@ class ProductoController extends Controller
     }
 
     public function deleteProducto($codigo) {
-        DB::table('productos')
-                ->where('cod_barra', '=', $codigo)
-                ->delete();
-
-        // DB::delete('productos')->where('cod_barra', $codigo);
-        // $item = Producto::find($id)->delete('cod_barra');
+        $item = Producto::find($codigo)->delete('cod_barra');
 
         return redirect()->route('home')->with('success', 'Producto Eliminado Correctamente.');
     }
