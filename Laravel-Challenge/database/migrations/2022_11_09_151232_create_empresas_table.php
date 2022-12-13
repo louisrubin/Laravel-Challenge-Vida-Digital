@@ -20,7 +20,7 @@ return new class extends Migration
             $table->bigIncrements('ID_empresa');
             $table->string('nombre');
             $table->string('direc_comerc');
-            $table->integer('telefono');
+            $table->string('telefono');
             $table->string('email');
 
             $table->timestamps();   // fecha-hora
