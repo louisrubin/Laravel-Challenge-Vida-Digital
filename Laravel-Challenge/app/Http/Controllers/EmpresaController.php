@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreEmpresaRequest;
 use App\Http\Requests\UpdateEmpresaRequest;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Empresa;
 
@@ -28,6 +29,13 @@ class EmpresaController extends Controller
 
      public function createEmpresaPage() {
         return view('empresa.newEmpresa' );
+    }
+
+    
+    public function getAllEmpresas() {
+        $empresas = Empresa::all();
+
+        return view('empresa.viewAllEmpresas');
     }
 
 
@@ -60,6 +68,15 @@ class EmpresaController extends Controller
         // redirect                         // mensaje en caso de 'success'
         return redirect()->route('home')->with('success', 'Empresa Agregado Correctamente.');
     }
+
+    public function deleteEmpresa($id) {
+        $item = Empresa::find($id)->delete('ID_empresa');
+
+        return redirect()->route('home');
+
+    }
+
+    
 
     /**
      * Store a newly created resource in storage.

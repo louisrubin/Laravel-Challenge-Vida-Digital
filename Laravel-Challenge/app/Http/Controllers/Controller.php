@@ -7,7 +7,12 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
-class Controller extends BaseController
-{
+class Controller extends BaseController {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    
+    public function backToHome() {
+        // REDIRECT TO 'HOME' PAGE
+        return redirect()->route('home');
+    }
 }

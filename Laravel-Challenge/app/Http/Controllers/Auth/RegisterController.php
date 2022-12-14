@@ -82,8 +82,9 @@ class RegisterController extends Controller
         $emp = Empresa::where('ID_empresa', $id_emp)->first();
         $sucur = Sucursal::where('ID_sucursal', $id_sucur)->first();
 
-        // CREATE THE INITIAL SUCURSALS AND EMPRESA TO REGISTER USER INTO IT
+        
         if( !$sucur && !$emp) {
+            // INITIAL EMPRESA
             $emp = Empresa::create( [
                 'ID_empresa' => $id_emp,
                 'nombre_emp' => 'Google Inc',
@@ -93,13 +94,24 @@ class RegisterController extends Controller
             ]);
 
 
-
+            // INITIAL SUCURSAL 1
             $sucur = Sucursal::create( [
                 // 'ID_sucursal' => $id,
                 'nombre_sucur' => 'El Pepe Salchichas',
                 'direc_comerc' => 'Av. Washington 4560',
                 'telefono' => '3624655443',
                 'email' => 'elpepe.12@gmail.com',
+                'ID_empresa1' => $id_emp,
+            ] );
+
+
+            // INITIAL SUCURSAL 2
+            $sucur = Sucursal::create( [
+                // 'ID_sucursal' => $id,
+                'nombre_sucur' => 'Gato Pedro Sucursal',
+                'direc_comerc' => 'Av. Italia 770',
+                'telefono' => '255415422',
+                'email' => 'pedro.gato@gmail.com',
                 'ID_empresa1' => $id_emp,
             ] );
 

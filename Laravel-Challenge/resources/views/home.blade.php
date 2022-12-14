@@ -37,6 +37,7 @@
 
                     {{-- FOR EACH PRODUCTO --}}
                     @foreach ($allProductos as $key => $item)
+
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <a href="{{ route( 'mostrarProducto', [$item->cod_barra] ) }}" class="text-capitalize text-decoration-none fw-bold">
@@ -111,18 +112,20 @@
                     @endif
 
                     {{-- FOR EACH EMPRESA --}}
-                    @foreach ($allEmpresas as $empresa)
+
+                    @foreach ($allEmpresas as $key => $empresa)
+
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <a href="" class="text-capitalize text-decoration-none fw-bold">
                                     {{ $empresa->nombre_emp }}
                                 </a>
-                                {{-- <small class="ps-2">({{ $item->unid_x_bulto }} x ${{ $item->precio_vent_bulto }})</small> --}}
+                                <small class="ps-2">({{ count($sucurEmpres->ID_empresa1 == $empresa->ID_empresa) }} Suc.)</small>
                             </div>
                             
 
                             {{-- DELETE EMPRESA --}}
-                            <form method="POST" action="{{ route('eliminarProducto', [$empresa->ID_empresa])  }}">
+                            <form method="POST" action="{{ route('eliminarEmpresa', [$empresa->ID_empresa])  }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger p-1">
@@ -135,14 +138,20 @@
                             
                         </div>
                         <hr>
+
+                    {{-- ONLY SHOW FIRST 3 ELEMENTS --}}
+                        @if ($key == 2)
+                            @break
+                        @endif
+
+
                     @endforeach
                     
-                    @if (count($allEmpresas) >= 3)
-                        <div class="text-center">
-                            <a href="" class="text-decoration-none fw-bold pt-3 ">Ver todas las empresas ({{ count($allEmpresas) }})</a>
-                        </div>
-                        
-                    @endif
+
+                    <div class="text-center">
+                        <a href="{{ route('viewAllEmpresas') }}" class="text-decoration-none fw-bold pt-3 ">Ver todas las empresas ({{ count($allEmpresas) }})</a>
+                    </div>
+                    
                     
                 </div>
             </div>

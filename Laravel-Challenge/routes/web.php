@@ -6,6 +6,7 @@ use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\SucursalController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,8 @@ Route::get('/productos', [ProductoController::class, 'allRecords'])->name('viewA
 Route::get('/productos/create', [ProductoController::class, 'createProductoPage'])->name('createProductoPage');
 Route::get('/producto/{codigo}', [ProductoController::class, 'showOne'])->name('mostrarProducto');
 Route::post('/producto/create', [ProductoController::class, 'createProducto'])->name('agregarProducto');
-Route::patch('/update/{codigo}', [ProductoController::class, 'updateProducto'])->name('updateProducto');
-Route::delete('/delete/{codigo}', [ProductoController::class, 'deleteProducto'])->name('eliminarProducto');
+Route::patch('/producto/update/{codigo}', [ProductoController::class, 'updateProducto'])->name('updateProducto');
+Route::delete('/producto/delete/{codigo}', [ProductoController::class, 'deleteProducto'])->name('eliminarProducto');
 
 
 
@@ -44,12 +45,12 @@ Route::delete('/delete/{codigo}', [ProductoController::class, 'deleteProducto'])
 
 // EMPRESAS
 
-Route::get('/empresas', [EmpresaController::class, 'allRecords'])->name('viewAllEmpresas');
+Route::get('/empresas', [EmpresaController::class, 'getAllEmpresas'])->name('viewAllEmpresas');
 Route::get('/empresa/create', [EmpresaController::class, 'createEmpresaPage'])->name('createEmpresaPage');
 Route::get('/empresa/{id}', [EmpresaController::class, 'showOne'])->name('mostrarEmpresa');
 Route::post('/empresa/create', [EmpresaController::class, 'createEmpresa'])->name('createEmpresa');
-Route::patch('/update/{id}', [EmpresaController::class, 'updateEmpresa'])->name('updateEmpresa');
-Route::delete('/delete/{id}', [EmpresaController::class, 'deleteEmpresa'])->name('eliminarEmpresa');
+Route::patch('/empresa/update/{id}', [EmpresaController::class, 'updateEmpresa'])->name('updateEmpresa');
+Route::delete('/empresa/delete/{id}', [EmpresaController::class, 'deleteEmpresa'])->name('eliminarEmpresa');
 
 
 
@@ -78,8 +79,8 @@ Route::get('/sucursals', [SucursalController::class, 'allRecords'])->name('viewA
 Route::get('/sucursals/create', [ProductoController::class, 'createSucursalPage'])->name('createSucursalPage');
 Route::get('/sucursal/{id}', [SucursalController::class, 'showOne'])->name('mostrarSucursal');
 Route::post('/sucursals', [SucursalController::class, 'createSucursal'])->name('agregarSucursal');
-Route::patch('/update/{id}', [SucursalController::class, 'updateSucursal'])->name('updateSucursal');
-Route::delete('/delete/{id}', [SucursalController::class, 'deleteSucursal'])->name('eliminarSucursal');
+Route::patch('/sucursal/update/{id}', [SucursalController::class, 'updateSucursal'])->name('updateSucursal');
+Route::delete('/sucursal/delete/{id}', [SucursalController::class, 'deleteSucursal'])->name('eliminarSucursal');
 
 
 
@@ -107,6 +108,6 @@ Route::delete('/user/delete/{id}', [EmpleadoController::class, 'deleteUser'])->n
 
 // SYSTEM
 Auth::routes();
-Route::get('/', [RegisterController::class, 'index']);
+Route::get('/', [Controller::class, 'backToHome']);
 Route::get('/register', [RegisterController::class, 'getAllSucursales'])->name('register');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'getEntidades' ])->name('home');

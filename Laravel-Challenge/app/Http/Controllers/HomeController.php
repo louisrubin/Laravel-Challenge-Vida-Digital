@@ -9,8 +9,9 @@ use App\Models\Producto;
 use App\Models\Empresa;
 use App\Models\Sucursal;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller {
+
+
     /**
      * Create a new controller instance.
      *
@@ -26,19 +27,30 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index() {
-        // REDIRECT TO 'HOME' PAGE
-        return redirect()->route('home');
-    }
 
     
     public function getEntidades() {
         // GET ALL RECORDS
-        $productos = Producto::all();
-        $empresas = Empresa::all();
-        $sucursals = Sucursal::all();
+        $allProductos = Producto::all();
+        $allEmpresas = Empresa::all();
+        $allSucursals = Sucursal::all();
 
-        return view('home', ['allProductos' => $productos], ['allEmpresas' => $empresas], ['allSucursals' => $sucursals] );
+        $sucurEmpres = DB::table('sucursals')
+            ->whereExists( function($query) {
+                $query->from('empresas')
+                ->whereColumn('ID_empresa1', 'ID_empresa');
+            } )
+            ->get();
+        
+            dd($sucurEmpres);    // DEBUG
+
+
+        return view('home', [
+            'allProductos' => $allProductos,
+            'allEmpresas' => $allEmpresas,
+            'allSucursals' => $allSucursals,
+            'sucurEmpres' => $sucurEmpres,
+        ] );
     }
 
 }
