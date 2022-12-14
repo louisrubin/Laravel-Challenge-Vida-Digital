@@ -11,35 +11,36 @@ use App\Models\Sucursal;
 
 class HomeController extends Controller {
 
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    public function allDataOfEmpresa($id) {
+        $empresa = Empresa::find($id);
 
-    // public function sucursOfEmpresa($id = null) {
-    //         // FUNCTION TO GET ALL SUCURSALS HAVE ONE EMPRESA
-    //     $sucurEmpres = DB::table('sucursals')
-    //     ->whereExists( function($query) {
-    //         $query->from('empresas')
-    //         ->whereColumn('ID_empresa1', 'ID_empresa');
-    //     } )
-    //     ->where('ID_empresa1', $id)
-    //     ->get();
+        // FUNCTION TO GET ALL SUCURSALS HAVE ONE EMPRESA
+        $sucursOfEmpresa = DB::table('sucursals')
+        ->whereExists( function($query) {
+            $query->from('empresas')
+            ->whereColumn('ID_empresa1', 'ID_empresa');
+        } )
+        ->where('ID_empresa1', $id)
+        ->get();
 
-    //     return ($sucurEmpres);
-    // }
+        // dd($sucursOfEmpresa);
+
+        if (!$empresa) {
+            // IF 'ID' NOT EXIST REDIRECT USER TO HOME
+            return redirect()->route('home');
+
+        } else {
+            return view('empresa.dataOfEmpresa', [
+                'oneEmpresa' => $empresa,
+                'sucursOfEmpresa' => $sucursOfEmpresa,
+                ] );
+        }
+    }
 
     
     public function getEntidades() {
@@ -48,22 +49,12 @@ class HomeController extends Controller {
         $allEmpresas = Empresa::all();
         $allSucursals = Sucursal::all();
 
-        // $allSucursOfEmpresa = $this->sucursOfEmpresa();
-        // foreach ($allSucursals as $it) {
-        //     $allSucursOfEmpresa = $this->sucursOfEmpresa($it->ID_empresa1);
-        //     // if ($it->ID_empresa1 == 2) {
-        //     //     break;
-        //     // }
-        // }
-        
-        // dd($allSucursOfEmpresa);    // DEBUG
 
 
         return view('home', [
             'allProductos' => $allProductos,
             'allEmpresas' => $allEmpresas,
             'allSucursals' => $allSucursals,
-            // 'sucursOfEmpresa' => $this->sucursOfEmpresa(),
         ] );
     }
 

@@ -9,23 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Empresa;
 
-class EmpresaController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+class EmpresaController extends Controller {
+    public function __construct() {
+        $this->middleware('auth');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function createEmpresaPage() {
         return view('empresa.newEmpresa' );
@@ -96,13 +83,6 @@ class EmpresaController extends Controller
         return redirect()->route('home')->with('success', 'Empresa Agregada Correctamente.');
     }
 
-    public function deleteEmpresa($id) {
-        $item = Empresa::find($id)->delete('ID_empresa');
-
-        return redirect()->route('home')->with('success', 'Empresa Eliminada Correctamente.');
-
-    }
-
     
     public function updateEmpresa(Request $request, $id) {
         $empresa = Empresa::find($id);
@@ -118,4 +98,11 @@ class EmpresaController extends Controller
         return redirect()->route('home')->with('success', 'Empresa Actualizada Correctamente.');
     }
 
+
+    public function deleteEmpresa($id) {
+        $item = Empresa::find($id)->delete('ID_empresa');
+
+        return redirect()->route('home')->with('success', 'Empresa Eliminada Correctamente.');
+
+    }
 }

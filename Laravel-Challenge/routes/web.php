@@ -31,18 +31,6 @@ Route::delete('/producto/delete/{codigo}', [ProductoController::class, 'deletePr
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // EMPRESAS
 
 Route::get('/empresas', [EmpresaController::class, 'getAllEmpresas'])->name('viewAllEmpresas');
@@ -76,12 +64,28 @@ Route::delete('/empresa/delete/{id}', [EmpresaController::class, 'deleteEmpresa'
 
 // SUCURSALS
 
-Route::get('/sucursals', [SucursalController::class, 'allRecords'])->name('viewAllSucursals');
-Route::get('/sucursals/create', [ProductoController::class, 'createSucursalPage'])->name('createSucursalPage');
-Route::get('/sucursal/{id}', [SucursalController::class, 'showOne'])->name('mostrarSucursal');
-Route::post('/sucursals', [SucursalController::class, 'createSucursal'])->name('agregarSucursal');
+Route::get('/sucursals/all', [SucursalController::class, 'getAllSucursals'])->name('viewAllSucursals');
+Route::get('/sucursals/create', [SucursalController::class, 'createSucursalPage'])->name('createSucursalPage');
+Route::get('/sucursal/{id}', [SucursalController::class, 'allDataOfSucursal'])->name('allDataOfSucursal');
+Route::post('/sucursal', [SucursalController::class, 'createSucursal'])->name('createSucursal');
 Route::patch('/sucursal/update/{id}', [SucursalController::class, 'updateSucursal'])->name('updateSucursal');
 Route::delete('/sucursal/delete/{id}', [SucursalController::class, 'deleteSucursal'])->name('eliminarSucursal');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
