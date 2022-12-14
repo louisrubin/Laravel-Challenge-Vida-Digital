@@ -93,13 +93,13 @@ class EmpresaController extends Controller
         $empresa->save();
 
         // redirect                         // mensaje en caso de 'success'
-        return redirect()->route('home')->with('success', 'Empresa Agregado Correctamente.');
+        return redirect()->route('home')->with('success', 'Empresa Agregada Correctamente.');
     }
 
     public function deleteEmpresa($id) {
         $item = Empresa::find($id)->delete('ID_empresa');
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Empresa Eliminada Correctamente.');
 
     }
 
