@@ -2,12 +2,12 @@
 
 {{-- TITLE --}}
 @section('title')
-    Registro
+    Registrarse
 @endsection
 
 {{-- FRASE PRINCIPAL SUPERIOR --}}
 @section('h1')
-    Registrarse
+    Crear Usuario
 @endsection
 
 @section('content')
