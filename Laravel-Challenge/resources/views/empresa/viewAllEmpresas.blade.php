@@ -55,7 +55,9 @@
 
                         @foreach ($allEmpresas as $item)
                             <tr>
-                                <td>{{ $item->nombre_emp }}</td>
+                                <td>
+                                    <a href="{{ route('allDataOfEmpresa', ['id' => $item->ID_empresa]) }}">{{ $item->nombre_emp }}</a>
+                                </td>
                                 <td class="text-capitalize">{{ $item->direc_comerc }}</td>
                                 <td>{{ $item->telefono }}</td>
                                 <td>{{ $item->email }}</td>
@@ -71,10 +73,11 @@
                                     <form method="POST" class="d-inline" action="{{ route('eliminarEmpresa', [$item->ID_empresa] )  }}">
                                         @csrf
                                         @method('DELETE')
-                                            <button type="submit" class="border-0 bg-transparent">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                                </svg>
+                                            <button type="submit" class="border-0 bg-transparent"
+                                                @if ($item->ID_empresa == 1) @disabled(true) @endif>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                                    </svg>
                                             </button>
                                             
                                     </form>

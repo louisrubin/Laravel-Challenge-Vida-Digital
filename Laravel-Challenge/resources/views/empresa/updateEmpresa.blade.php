@@ -20,7 +20,7 @@
                     <div class="card-header">{{ __('Empresa') }}</div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('updateEmpresa', ['id' => $empresa->ID_empresa]) }}">
+                            <form method="POST" action="{{ route('updateEmpresa', ['id' => $empresa->ID_empresa]) }}" >
                                 @method('PATCH')
                                 @csrf
 
@@ -29,7 +29,7 @@
                                     <label class="col-md-4 col-form-label text-md-end">{{ __('Nombre de la Empresa') }}</label>
 
                                     <div class="col-md-6">
-                                        <input name="nombre_emp"  type="text" class="form-control" value="{{ $empresa->nombre_emp }}" required autofocus>
+                                        <input name="nombre_emp"  type="text" class="form-control" value="{{ $empresa->nombre_emp }}" autofocus @if ($empresa->ID_empresa == 1) @disabled(true) @endif>
 
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@
                                     <label class="col-md-4 col-form-label text-md-end">{{ __('Dirección Comercial') }}</label>
 
                                     <div class="col-md-6">
-                                        <input name="direc_comerc" type="text"  class="form-control" value="{{ $empresa->direc_comerc }}" required >
+                                        <input name="direc_comerc" type="text"  class="form-control" value="{{ $empresa->direc_comerc }}" @if ($empresa->ID_empresa == 1) @disabled(true) @endif >
 
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@
                                     <label class="col-md-4 col-form-label text-md-end">{{ __('Teléfono') }}</label>
                                     
                                     <div class="col-md-6">
-                                        <input name="telefono" type="text" class="form-control" value="{{ $empresa->telefono }}" required>
+                                        <input name="telefono" type="text" class="form-control" value="{{ $empresa->telefono }}" @if ($empresa->ID_empresa == 1) @disabled(true) @endif>
 
                                     </div>
                                 </div>
@@ -57,14 +57,14 @@
                                     
                                     <div class="col-md-6">
                                         
-                                        <input name="email" type="text" class="form-control" value="{{ $empresa->email }}" required>
+                                        <input name="email" type="text" class="form-control" value="{{ $empresa->email }}" @if ($empresa->ID_empresa == 1) @disabled(true) @endif>
 
                                     </div>
                                 </div>
 
                                 <div class="row mb-0 ">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-success">
+                                        <button type="submit" class="btn btn-success" @if ($empresa->ID_empresa == 1) @disabled(true) @endif>
                                             {{ __('Actualizar Empresa') }}
                                         </button>
                                     </div>

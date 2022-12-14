@@ -70,25 +70,16 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     
-
-
-
-    public function getAllSucursales() {
-        // FUNCION QUE OBTIENE TODAS LAS SUCURSALES PARA VINCULARLOS AL MOMENTO DEL REGISTRO
+    public function initialRecords() {
         
-
-        $id_emp = 1;
-        $id_sucur = 1;
-        $emp = Empresa::where('ID_empresa', $id_emp)->first();
-        $sucur = Sucursal::where('ID_sucursal', $id_sucur)->first();
-
+        $emp = Empresa::where('ID_empresa', 1)->first();
+        $sucur = Sucursal::where('ID_sucursal', 1)->first();
         
         if( !$sucur && !$emp) {
             // INITIAL EMPRESA
             $emp = Empresa::create( [
-                'ID_empresa' => $id_emp,
-                'nombre_emp' => 'Google Inc',
-                'direc_comerc' => 'Av. Mexico 320',
+                'nombre_emp' => 'Google Inc.',
+                'direc_comerc' => 'Av. México 320',
                 'telefono' => '03624569014',
                 'email' => 'google@google.com',
             ]);
@@ -96,28 +87,31 @@ class RegisterController extends Controller
 
             // INITIAL SUCURSAL 1
             $sucur = Sucursal::create( [
-                // 'ID_sucursal' => $id,
                 'nombre_sucur' => 'El Pepe Salchichas',
                 'direc_comerc' => 'Av. Washington 4560',
                 'telefono' => '03624655443',
                 'email' => 'elpepe.12@gmail.com',
-                'ID_empresa1' => $id_emp,
+                'ID_empresa1' => 1,
             ] );
 
 
             // INITIAL SUCURSAL 2
             $sucur = Sucursal::create( [
-                // 'ID_sucursal' => $id,
                 'nombre_sucur' => 'Gato Pedro Sucursal',
                 'direc_comerc' => 'Av. Italia 770',
                 'telefono' => '03624855212',
                 'email' => 'pedro.gato@gmail.com',
-                'ID_empresa1' => $id_emp,
+                'ID_empresa1' => 1,
             ] );
-
-
         }
+    }
 
+
+
+    public function getAllSucursales() {
+        // FUNCION QUE OBTIENE TODAS LAS SUCURSALES PARA VINCULARLOS AL MOMENTO DEL REGISTRO
+        
+        $this->initialRecords();
 
         // GET ALL SUCURSALS
         $sucursals = Sucursal::all();
