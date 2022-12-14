@@ -89,7 +89,7 @@ class RegisterController extends Controller
                 'ID_empresa' => $id_emp,
                 'nombre_emp' => 'Google Inc',
                 'direc_comerc' => 'Av. Mexico 320',
-                'telefono' => '3624569014',
+                'telefono' => '03624569014',
                 'email' => 'google@google.com',
             ]);
 
@@ -99,7 +99,7 @@ class RegisterController extends Controller
                 // 'ID_sucursal' => $id,
                 'nombre_sucur' => 'El Pepe Salchichas',
                 'direc_comerc' => 'Av. Washington 4560',
-                'telefono' => '3624655443',
+                'telefono' => '03624655443',
                 'email' => 'elpepe.12@gmail.com',
                 'ID_empresa1' => $id_emp,
             ] );
@@ -110,7 +110,7 @@ class RegisterController extends Controller
                 // 'ID_sucursal' => $id,
                 'nombre_sucur' => 'Gato Pedro Sucursal',
                 'direc_comerc' => 'Av. Italia 770',
-                'telefono' => '255415422',
+                'telefono' => '03624855212',
                 'email' => 'pedro.gato@gmail.com',
                 'ID_empresa1' => $id_emp,
             ] );

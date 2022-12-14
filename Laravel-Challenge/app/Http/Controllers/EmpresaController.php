@@ -27,20 +27,24 @@ class EmpresaController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function createEmpresaPage() {
+    public function createEmpresaPage() {
         return view('empresa.newEmpresa' );
+    }
+
+    public function updateEmpresaPage($id) {
+        $empresa = Empresa::find($id);
+        return view('empresa.updateEmpresa', ['empresa' => $empresa]);
     }
 
     
     public function getAllEmpresas() {
         $empresas = Empresa::all();
-
         return view('empresa.viewAllEmpresas', ['allEmpresas' => $empresas]);
     }
 
 
 
-    public function showOne($id) {
+    public function allDataOfEmpresa($id) {
         $empresa = Empresa::find($id);
 
         // FUNCTION TO GET ALL SUCURSALS HAVE ONE EMPRESA
@@ -100,40 +104,18 @@ class EmpresaController extends Controller
     }
 
     
+    public function updateEmpresa(Request $request, $id) {
+        $empresa = Empresa::find($id);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreEmpresaRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+        // el valor llegado de la base de datos se lo paso al request
+        $empresa->nombre_emp = $request->nombre_emp;
+        $empresa->direc_comerc =  $request->direc_comerc;
+        $empresa->telefono =  $request->telefono;
+        $empresa->email  =  $request->email;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
+        $empresa->save();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
+        return redirect()->route('home')->with('success', 'Empresa Actualizada Correctamente.');
+    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateEmpresaRequest  $request
-     * @param  \App\Models\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Empresa  $empresa
-     * @return \Illuminate\Http\Response
-     */
 }

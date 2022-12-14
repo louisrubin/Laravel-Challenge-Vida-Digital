@@ -49,7 +49,7 @@
                                 <td>{{ $oneEmpresa->nombre_emp }}</td>
                                 <td class="text-capitalize">{{ $oneEmpresa->direc_comerc }}</td>
                                 <td>{{ $oneEmpresa->telefono }}</td>
-                                <td>${{ $oneEmpresa->email }}</td>
+                                <td>{{ $oneEmpresa->email }}</td>
                                 <td>
                                     <a href="{{ route('mostrarEmpresa', ['id' => $oneEmpresa->ID_empresa] ) }}" class="text-decoration-none me-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -75,11 +75,16 @@
                     </table>
                 </div>
 
+
+
+
+                {{-- SUCURSALES EN PROPIEDAD --}}
                 
                 <div class="card mt-5">
                     <div class="card-header fs-5 fw-semibold">
                         <div>Sucursales de 
-                            <b class="fst-italic text-decoration-underline">{{ $oneEmpresa->nombre_emp }}</b>
+                            <b class="fst-italic text-decoration-underline">{{ $oneEmpresa->nombre_emp }} </b>
+                            <br> <button class="btn btn-danger">pepe salchichas y gato pedro desactivar botón para eliminar o modificar</button>
                         </div>
                     </div>
 
@@ -98,7 +103,7 @@
                                         <td>{{ $item->nombre_sucur }}</td>
                                         <td class="text-capitalize">{{ $item->direc_comerc }}</td>
                                         <td>{{ $item->telefono }}</td>
-                                        <td>${{ $item->email }}</td>
+                                        <td>{{ $item->email }}</td>
                                         <td>
                                             <a href="{{ route('mostrarEmpresa', ['id' => $item->ID_sucursal] ) }}" class="text-decoration-none me-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

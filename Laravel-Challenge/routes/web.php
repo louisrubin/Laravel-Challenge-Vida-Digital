@@ -47,7 +47,8 @@ Route::delete('/producto/delete/{codigo}', [ProductoController::class, 'deletePr
 
 Route::get('/empresas', [EmpresaController::class, 'getAllEmpresas'])->name('viewAllEmpresas');
 Route::get('/empresa/create', [EmpresaController::class, 'createEmpresaPage'])->name('createEmpresaPage');
-Route::get('/empresa/{id}', [EmpresaController::class, 'showOne'])->name('mostrarEmpresa');
+Route::get('/empresa/update/{id}', [EmpresaController::class, 'updateEmpresaPage'])->name('mostrarEmpresa');
+Route::get('/empresa/sucursales/{id}', [EmpresaController::class, 'allDataOfEmpresa'])->name('allDataOfEmpresa');
 Route::post('/empresa/create', [EmpresaController::class, 'createEmpresa'])->name('createEmpresa');
 Route::patch('/empresa/update/{id}', [EmpresaController::class, 'updateEmpresa'])->name('updateEmpresa');
 Route::delete('/empresa/delete/{id}', [EmpresaController::class, 'deleteEmpresa'])->name('eliminarEmpresa');

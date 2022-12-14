@@ -117,7 +117,7 @@
 
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <a href="{{ route('mostrarEmpresa', ['id' => $empresa->ID_empresa] ) }}" class="text-capitalize text-decoration-none fw-bold">
+                                <a href="{{ route('allDataOfEmpresa', ['id' => $empresa->ID_empresa] ) }}" class="text-capitalize text-decoration-none fw-bold">
                                     {{ $empresa->nombre_emp }}
                                 </a>
                             </div>

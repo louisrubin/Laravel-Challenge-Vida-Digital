@@ -58,7 +58,7 @@
                                 <td>{{ $item->nombre_emp }}</td>
                                 <td class="text-capitalize">{{ $item->direc_comerc }}</td>
                                 <td>{{ $item->telefono }}</td>
-                                <td>${{ $item->email }}</td>
+                                <td>{{ $item->email }}</td>
                                 <td>
                                     <a href="{{ route('mostrarEmpresa', ['id' => $item->ID_empresa] ) }}" class="text-decoration-none me-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
