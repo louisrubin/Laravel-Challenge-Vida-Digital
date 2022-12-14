@@ -39,13 +39,30 @@ class EmpresaController extends Controller
     }
 
 
+
     public function showOne($id) {
         $empresa = Empresa::find($id);
+
+        // FUNCTION TO GET ALL SUCURSALS HAVE ONE EMPRESA
+        $sucursOfEmpresa = DB::table('sucursals')
+        ->whereExists( function($query) {
+            $query->from('empresas')
+            ->whereColumn('ID_empresa1', 'ID_empresa');
+        } )
+        ->where('ID_empresa1', $id)
+        ->get();
+
+        // dd($sucursOfEmpresa);
+
         if (!$empresa) {
             // IF 'ID' NOT EXIST REDIRECT USER TO HOME
             return redirect()->route('home');
+
         } else {
-            return view('empresa.dataOfEmpresa', ['oneEmpresa' => $empresa] );
+            return view('empresa.dataOfEmpresa', [
+                'oneEmpresa' => $empresa,
+                'sucursOfEmpresa' => $sucursOfEmpresa,
+                ] );
         }
     }
 
