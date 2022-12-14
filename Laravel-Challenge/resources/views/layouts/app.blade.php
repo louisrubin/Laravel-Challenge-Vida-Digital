@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title')</title>
+    <title class="text-capitalize">@yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,7 +20,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand fw-bold fs-2 ">
+                <a class="navbar-brand fw-bold fs-2 text-capitalize">
                     {{-- {{ config('app.name', 'aaa') }} --}}
                     @yield('h1')
                 </a>

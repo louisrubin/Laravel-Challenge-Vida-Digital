@@ -108,6 +108,6 @@ Route::delete('/user/delete/{id}', [EmpleadoController::class, 'deleteUser'])->n
 
 // SYSTEM
 Auth::routes();
-Route::get('/', [Controller::class, 'backToHome']);
+Route::get('/', [Controller::class, 'backToHome'])->name('backToHome');
 Route::get('/register', [RegisterController::class, 'getAllSucursales'])->name('register');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'getEntidades' ])->name('home');

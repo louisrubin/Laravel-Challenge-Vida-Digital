@@ -54,7 +54,12 @@ class ProductoController extends Controller
     public function showOne($cod) {
         $producto = DB::table('productos')->where('cod_barra', $cod)->first();
         
-        return view('productos.updateProducto', ['producto' => $producto]);
+        if (!$producto) {
+            // IF 'COD' NOT EXIST REDIRECT USER TO HOME
+            return redirect()->route('home');
+        } else {
+            return view('productos.updateProducto', ['producto' => $producto]);
+        }        
     }
 
 

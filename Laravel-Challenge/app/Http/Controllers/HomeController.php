@@ -28,6 +28,19 @@ class HomeController extends Controller {
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
+    // public function sucursOfEmpresa($id = null) {
+    //         // FUNCTION TO GET ALL SUCURSALS HAVE ONE EMPRESA
+    //     $sucurEmpres = DB::table('sucursals')
+    //     ->whereExists( function($query) {
+    //         $query->from('empresas')
+    //         ->whereColumn('ID_empresa1', 'ID_empresa');
+    //     } )
+    //     ->where('ID_empresa1', $id)
+    //     ->get();
+
+    //     return ($sucurEmpres);
+    // }
+
     
     public function getEntidades() {
         // GET ALL RECORDS
@@ -35,21 +48,22 @@ class HomeController extends Controller {
         $allEmpresas = Empresa::all();
         $allSucursals = Sucursal::all();
 
-        $sucurEmpres = DB::table('sucursals')
-            ->whereExists( function($query) {
-                $query->from('empresas')
-                ->whereColumn('ID_empresa1', 'ID_empresa');
-            } )
-            ->get();
+        // $allSucursOfEmpresa = $this->sucursOfEmpresa();
+        // foreach ($allSucursals as $it) {
+        //     $allSucursOfEmpresa = $this->sucursOfEmpresa($it->ID_empresa1);
+        //     // if ($it->ID_empresa1 == 2) {
+        //     //     break;
+        //     // }
+        // }
         
-            dd($sucurEmpres);    // DEBUG
+        // dd($allSucursOfEmpresa);    // DEBUG
 
 
         return view('home', [
             'allProductos' => $allProductos,
             'allEmpresas' => $allEmpresas,
             'allSucursals' => $allSucursals,
-            'sucurEmpres' => $sucurEmpres,
+            // 'sucursOfEmpresa' => $this->sucursOfEmpresa(),
         ] );
     }
 

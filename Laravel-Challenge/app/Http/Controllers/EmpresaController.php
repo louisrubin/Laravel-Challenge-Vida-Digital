@@ -35,12 +35,18 @@ class EmpresaController extends Controller
     public function getAllEmpresas() {
         $empresas = Empresa::all();
 
-        return view('empresa.viewAllEmpresas');
+        return view('empresa.viewAllEmpresas', ['allEmpresas' => $empresas]);
     }
 
 
-    public function showOne(Empresa $empresa) {
-        //
+    public function showOne($id) {
+        $empresa = Empresa::find($id);
+        if (!$empresa) {
+            // IF 'ID' NOT EXIST REDIRECT USER TO HOME
+            return redirect()->route('home');
+        } else {
+            return view('empresa.dataOfEmpresa', ['oneEmpresa' => $empresa] );
+        }
     }
 
     public function createEmpresa(Request $request) {

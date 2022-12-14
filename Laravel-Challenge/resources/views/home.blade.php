@@ -117,10 +117,9 @@
 
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <a href="" class="text-capitalize text-decoration-none fw-bold">
+                                <a href="{{ route('mostrarEmpresa', ['id' => $empresa->ID_empresa] ) }}" class="text-capitalize text-decoration-none fw-bold">
                                     {{ $empresa->nombre_emp }}
                                 </a>
-                                <small class="ps-2">({{ count($sucurEmpres->ID_empresa1 == $empresa->ID_empresa) }} Suc.)</small>
                             </div>
                             
 
