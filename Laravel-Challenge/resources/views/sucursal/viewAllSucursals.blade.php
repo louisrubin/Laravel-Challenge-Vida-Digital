@@ -7,7 +7,12 @@
 
 {{-- FRASE PRINCIPAL SUPERIOR --}}
 @section('h1')
-    all sucursals
+    Viendo ({{ count($allSucursals) }})  
+    @if (count($allSucursals) == 1)
+        sucursal
+    @else
+        sucursales
+    @endif 
 @endsection
 
 
