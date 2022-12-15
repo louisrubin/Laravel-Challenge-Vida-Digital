@@ -197,7 +197,7 @@
                             
 
                             {{-- DELETE VENTA --}}
-                            <form method="POST" action="{{ route('eliminarProducto', [$sucur->ID_sucursal])  }}">
+                            <form method="POST" action="{{ route('eliminarSucursal', [$sucur->ID_sucursal])  }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger p-1" @if ($sucur->ID_sucursal == 1 or $sucur->ID_sucursal == 2) @disabled(true) @endif>

@@ -68,7 +68,7 @@
                                 <label class="col-md-4 col-form-label text-md-end">{{ __('Empresa Perteneciente') }}</label>
 
                                 <div class="col-md-6">
-                                    <select name="ID_empresa1" class="form-control" >
+                                    <select name="ID_empresa1" class="form-control"  @if ($sucursal->ID_sucursal == 1 or $sucursal->ID_sucursal == 2) @disabled(true) @endif>
 
                                         <option value="" class="@error('ID_empresa1') is-invalid @enderror" >Seleccionar</option>
                                         
