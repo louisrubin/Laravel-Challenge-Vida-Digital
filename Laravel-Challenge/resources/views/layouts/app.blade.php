@@ -56,6 +56,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                    <button disabled="disabled" class="dropdown-item text-center">Mi Perfil :(</button>
+
                                     <a class="dropdown-item text-center" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -65,8 +68,6 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-
-                                    <a class="dropdown-item text-center">:D</a>
 
                                 </div>
                             </li>

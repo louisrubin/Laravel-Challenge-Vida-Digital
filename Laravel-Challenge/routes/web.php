@@ -30,7 +30,6 @@ Route::patch('/producto/update/{codigo}', [ProductoController::class, 'updatePro
 Route::delete('/producto/delete/{codigo}', [ProductoController::class, 'deleteProducto'])->name('eliminarProducto');
 
 
-
 // EMPRESAS
 
 Route::get('/empresas', [EmpresaController::class, 'getAllEmpresas'])->name('viewAllEmpresas');
@@ -40,26 +39,6 @@ Route::get('/empresa/sucursales/{id}', [EmpresaController::class, 'allDataOfEmpr
 Route::post('/empresa/create', [EmpresaController::class, 'createEmpresa'])->name('createEmpresa');
 Route::patch('/empresa/update/{id}', [EmpresaController::class, 'updateEmpresa'])->name('updateEmpresa');
 Route::delete('/empresa/delete/{id}', [EmpresaController::class, 'deleteEmpresa'])->name('eliminarEmpresa');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // SUCURSALS
@@ -73,42 +52,13 @@ Route::patch('/sucursal/update/{id}', [SucursalController::class, 'updateSucursa
 Route::delete('/sucursal/delete/{id}', [SucursalController::class, 'deleteSucursal'])->name('eliminarSucursal');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // USERS
 
-Route::get('/users', [EmpleadoController::class, 'allRecords'])->name('viewAllUsers');
-Route::get('/user/{id}', [EmpleadoController::class, 'showOne'])->name('mostrarUser');
-Route::post('/users', [EmpleadoController::class, 'createUser'])->name('agregarUser');
-Route::patch('/user/{id}', [EmpleadoController::class, 'updateUser'])->name('updateUser');
-Route::delete('/user/delete/{id}', [EmpleadoController::class, 'deleteUser'])->name('eliminarUser');
-
-
-// EN_VENTAS
-
-
-// ENCARGOS
-
-
-// ACTUALIZAR_STOCKS
-
-
-// STOCKS
+// Route::get('/users', [EmpleadoController::class, 'allRecords'])->name('viewAllUsers');
+// Route::get('/user/{id}', [EmpleadoController::class, 'showOne'])->name('mostrarUser');
+// Route::post('/users', [EmpleadoController::class, 'createUser'])->name('agregarUser');
+// Route::patch('/user/{id}', [EmpleadoController::class, 'updateUser'])->name('updateUser');
+// Route::delete('/user/delete/{id}', [EmpleadoController::class, 'deleteUser'])->name('eliminarUser');
 
 
 
