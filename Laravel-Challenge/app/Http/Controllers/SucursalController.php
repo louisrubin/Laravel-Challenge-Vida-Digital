@@ -20,6 +20,15 @@ class SucursalController extends Controller {
         return view('sucursal.viewAllSucursals', ['allSucursals' => $sucursals]);
     }
 
+    public function updateSucursalPage($id) {
+        $sucur = Sucursal::find($id);
+        $allEmpresas = Empresa::all();
+
+        return view('sucursal.updateSucursal', ['sucursal' => $sucur,
+                                                'allEmpresas' => $allEmpresas,
+                                            ]);
+    }
+
 
     public function createSucursalPage() {
         $allEmpresas = Empresa::all();

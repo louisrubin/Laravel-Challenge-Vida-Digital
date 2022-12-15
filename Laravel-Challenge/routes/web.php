@@ -67,6 +67,7 @@ Route::delete('/empresa/delete/{id}', [EmpresaController::class, 'deleteEmpresa'
 Route::get('/sucursals/all', [SucursalController::class, 'getAllSucursals'])->name('viewAllSucursals');
 Route::get('/sucursals/create', [SucursalController::class, 'createSucursalPage'])->name('createSucursalPage');
 Route::get('/sucursal/{id}', [SucursalController::class, 'allDataOfSucursal'])->name('allDataOfSucursal');
+Route::get('/sucursal/update/{id}', [SucursalController::class, 'updateSucursalPage'])->name('updateSucursalPage');
 Route::post('/sucursal', [SucursalController::class, 'createSucursal'])->name('createSucursal');
 Route::patch('/sucursal/update/{id}', [SucursalController::class, 'updateSucursal'])->name('updateSucursal');
 Route::delete('/sucursal/delete/{id}', [SucursalController::class, 'deleteSucursal'])->name('eliminarSucursal');
